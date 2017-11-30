@@ -2,7 +2,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class DropTableStockGroupsBagTypes extends AbstractMigration
+class CreateProductsTable extends AbstractMigration
 {
     /**
      * Change Method.
@@ -27,6 +27,13 @@ class DropTableStockGroupsBagTypes extends AbstractMigration
      */
     public function change()
     {
-        $this->dropTable('stock_groups_bag_types');
+        $table = $this->table('products');
+        $table->addColumn('product_name', 'string',['limit' => 100])
+              ->addColumn('price', 'decimal',['precision' => 10, 'scale' => 2])
+              ->addColumn('offer_price', 'decimal',['precision' => 10, 'scale' => 2])
+              ->addColumn('created', 'datetime')
+              ->addColumn('availability', 'boolean')
+              ->addColumn('product_type', 'enum',['values' => 'veg,non-veg'])
+              ->create();
     }
 }

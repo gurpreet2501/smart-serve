@@ -49,7 +49,8 @@ $config['menu_access'] = [
 	  ],
 
 	  'user_management' => [
-			'manage_users' => 'data/manageUsers',
+			'manage_users' => 'data/
+			',
 			// 'user_access' =>  'data/userAccess',
 	  ],
 
